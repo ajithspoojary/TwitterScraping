@@ -1,16 +1,7 @@
-# This is a sample Python script.
+import streamlit as st
+st.set_page_config(page_title="Twitter Scrapper", page_icon=":tada:", layout="wide")
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# header sect
+st.header("Twitter Scrapping Project")
+st.title("First Twitter Project")
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/

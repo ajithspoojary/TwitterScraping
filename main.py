@@ -2,12 +2,11 @@ import snscrape.modules.twitter as sntwitter
 import streamlit as st
 import datetime
 import pandas as pd
-import pymongo
 from pymongo import MongoClient
-from PIL import Image
+
 
 st.set_page_config(page_title="Twitter Scrapper", page_icon=":tada:", layout="wide")
-st.header("Twitter Scrapper")
+st.header("Twitter HashTag Scrapper")
 
 tweet = st.sidebar.text_input("Enter the Twitter hashtag")
 if tweet == "":
@@ -68,7 +67,7 @@ if (st.sidebar.button('Submit')):
         with col3:
             st.download_button("Download CSV File", csv, "tweetreport.csv", "text/csv", key='download-csv')
 
-        st.write(tweets_list2)
-        st.write("Success in Reading Tweets!!!!")
+        #st.write(tweets_list2)
+        #st.write("Success in Reading Tweets!!!!")
     else:
         st.error('Error: End date must fall after start date.')

@@ -82,7 +82,7 @@ if (st.sidebar.button('Submit')):
         #tweet_db.insert_many(data_dict)
         #st.success("Details Uploaded Successfully")
 
-        # Export dataframe into a CSV
+        # Export dataframe into a CSV type
         def convert_df(tweets_df):
             return tweets_df.to_csv(index=False).encode('utf-8')
         csv = convert_df(tweets_df)

@@ -2,11 +2,13 @@ import snscrape.modules.twitter as sntwitter
 import streamlit as st
 import datetime
 import pandas as pd
+import pymongo
 from pymongo import MongoClient
 from streamlit_lottie import st_lottie
 import lottie as lo
 import time
 import json
+import math
 
 st.set_page_config(page_title="Twitter Scrapper", page_icon=":tada:", layout="wide")
 
@@ -67,6 +69,26 @@ if (st.sidebar.button('Submit')):
         #tweets_df.head()
 
         st.write(tweets_df)
+
+        client = MongoClient("mongodb://localhost:27017/")
+        st.success("Connection Successfull")
+        db = client["Tweet_Scrap"]
+        st.success("Database Created")
+        tweet_db = db["Hash_detail"]
+        st.success("Collection Created")
+        data_dict = tweets_df.to_dict("records")
+        tweet_db.insert_many(data_dict)
+        st.success("Details Uploaded Successfully")
+        def mongoconnection():
+            client = MongoClient("mongodb://localhost:27017/")
+            st.success("Connection Successfull")
+            db = client["Tweet_Scrap"]
+            st.success("Database Created")
+            tweet_db = db["Hash_detail"]
+            st.success("Collection Created")
+            data_dict = tweets_df.to_dict("records")
+            tweet_db.insert_many(data_dict)
+            st.success("Details Uploaded Successfully")
         def convert_df(tweets_df):
             return tweets_df.to_csv(index=False).encode('utf-8')
         csv = convert_df(tweets_df)
@@ -90,8 +112,9 @@ if (st.sidebar.button('Submit')):
         with col1:
             #st.button('Upload to Database')
             if st.button('Upload To Database'):
-                # Making a Connection with MongoClient
-                client = MongoClient("mongodb://localhost:27017")
+                # Making a Connection with MongoClientteamindia
+                client = MongoClient("mongodb://localhost:27017/")
+                #client = pymongo.MongoClient('localhost', 27017)
                 st.success("Connection Successfull")
                 # database
                 db = client["Tweet_Scrap"]
@@ -101,7 +124,10 @@ if (st.sidebar.button('Submit')):
                 tweet_db = db["Hash_detail"]
                 #tweet_db = db.Hash_detail
                 st.success("Collection Created")
-                tweet_db.insert_many(json_string)
+                data_dict = tweets_df.to_dict("records")
+                # Insert collection
+                tweet_db.insert_many(data_dict)
+                # tweet_db.insert_one(json_string)
                 st.success("Details Uploaded Successfully")
 
         with col2:

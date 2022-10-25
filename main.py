@@ -3,10 +3,26 @@ import streamlit as st
 import datetime
 import pandas as pd
 from pymongo import MongoClient
+from streamlit_lottie import st_lottie
+import lottie as lo
+
 
 
 st.set_page_config(page_title="Twitter Scrapper", page_icon=":tada:", layout="wide")
-st.header("Twitter HashTag Scrapper")
+
+title_container = st.container()
+col1, col2 = st.columns([1,20])
+with title_container:
+    with col1:
+        st_lottie(lo.lottie_anim.lottie_coding, height=100)
+    with col2:
+        st.markdown('<h1 style="color: purple;">Twitter HashTag Scrapper</h1>', unsafe_allow_html=True)
+
+
+
+with st.sidebar:
+    st_lottie(lo.lottie_anim.lottie_coding1)
+
 
 tweet = st.sidebar.text_input("Enter the Twitter hashtag")
 if tweet == "":

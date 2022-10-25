@@ -1,1 +1,7 @@
-
+Streamlit => For front End UI
+Snscrapper => To extract data from Twitter 
+Pandas => To Create a data frame for extracted twitter data 
+Pymongo => To store data in Mongodb
+Lottie => To display animated image in FrontEnd UI
+Requests => To request url from Lottie Server
+Datetime => To Vaildate Date from Calendar

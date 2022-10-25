@@ -10,11 +10,12 @@ You Need to Scrape the data like (date, id, url, tweet content, user,reply count
 ## Directory Structure
 > 1. This repository consists the file required to create Twitter Scrapper Application
 > 2. The "main.py" file consists of major code required to develop the applcation. Pycharm IDE is recommended.
-> 3. The "lottie.py" file has code required for animation of image in front Streamlit User Interface.
+> 3. The "lottie.py" file has code required for animation of image in Frontend Streamlit User Interface.
 
 ## Requirements
 > 1. Python Scripting
 > 2. Streamlit for Front End UI
+> 3. Snscrape library to extract data from Twitter
 > 3. Pandas to create Data Frames
 > 3. Mongodb to store data in database
 

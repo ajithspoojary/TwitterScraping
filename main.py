@@ -18,6 +18,7 @@ with title_container:
     with col2:
         st.markdown('<h1 style="color: purple;">Twitter HashTag Scrapper</h1>', unsafe_allow_html=True)
 
+#twitter animation in sidebar
 with st.sidebar:
     st_lottie(lo.lottie_anim.lottie_coding1, height=300)
 
@@ -64,9 +65,11 @@ if (st.sidebar.button('Submit')):
 
         # Creating a dataframe from the tweets list above
         tweets_df = pd.DataFrame(tweets_list,columns=['Tweet Id', 'Username', 'Followers Count',  'Content', 'Likes', 'Retweet Count', 'Language', 'Reply Count', 'Date-time',  'URL', 'Source', 'Source Label', 'Keyword'])
+
         # Display first 5 entries from dataframe
         #tweets_df.head()
 
+        #Display the result in streamlit
         st.write(tweets_df)
 
         #client = MongoClient("mongodb://localhost:27017/")

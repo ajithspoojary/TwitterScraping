@@ -2,13 +2,11 @@ import snscrape.modules.twitter as sntwitter
 import streamlit as st
 import datetime
 import pandas as pd
-import pymongo
 from pymongo import MongoClient
 from streamlit_lottie import st_lottie
 import lottie as lo
 import time
-import json
-import math
+
 
 st.set_page_config(page_title="Twitter Scrapper", page_icon=":tada:", layout="wide")
 
@@ -70,65 +68,48 @@ if (st.sidebar.button('Submit')):
 
         st.write(tweets_df)
 
-        client = MongoClient("mongodb://localhost:27017/")
-        st.success("Connection Successfull")
-        db = client["Tweet_Scrap"]
-        st.success("Database Created")
-        tweet_db = db["Hash_detail"]
-        st.success("Collection Created")
-        data_dict = tweets_df.to_dict("records")
-        tweet_db.insert_many(data_dict)
-        st.success("Details Uploaded Successfully")
-        def mongoconnection():
-            client = MongoClient("mongodb://localhost:27017/")
-            st.success("Connection Successfull")
-            db = client["Tweet_Scrap"]
-            st.success("Database Created")
-            tweet_db = db["Hash_detail"]
-            st.success("Collection Created")
-            data_dict = tweets_df.to_dict("records")
-            tweet_db.insert_many(data_dict)
-            st.success("Details Uploaded Successfully")
+        #client = MongoClient("mongodb://localhost:27017/")
+        #st.success("Connection Successfull")
+        #db = client["Tweet_Scrap"]
+        #st.success("Database Created")
+        #tweet_db = db["Hash_detail"]
+        #st.success("Collection Created")
+        #data_dict = tweets_df.to_dict("records")
+        #tweet_db.insert_many(data_dict)
+        #st.success("Details Uploaded Successfully")
+
+        # Export dataframe into a CSV
         def convert_df(tweets_df):
             return tweets_df.to_csv(index=False).encode('utf-8')
         csv = convert_df(tweets_df)
-
-        # def convert_jsondf(tweets_df2):
-        # return tweets_df2.to_json
-        # json = convert_jsondf(tweets_df2)
-
-        #json_string = json.dumps(tweets_list2, default=str)
-        # Export dataframe into a CSV
         tweets_df.to_csv('text-query-tweets.csv', sep=',', index=False)
 
-        #def convert_jsondf(tweets_df):
-            #return tweets_df.to_json
-        #json_string = convert_jsondf(tweets_df)
+        # Converts dataframe into a Json
         json_string = tweets_df.to_json(orient='index')
         #json_string = json.dumps(tweets_list,default=str)
         #st.json(json_string, expanded=True)
 
         col1, col2, col3 = st.columns([1, 1, 1])
         with col1:
-            #st.button('Upload to Database')
             if st.button('Upload To Database'):
-                # Making a Connection with MongoClientteamindia
+                # Making a Connection with MongoClient
                 client = MongoClient("mongodb://localhost:27017/")
                 #client = pymongo.MongoClient('localhost', 27017)
-                st.success("Connection Successfull")
+
                 # database
                 db = client["Tweet_Scrap"]
                 #db = client.Twitter_Scrap
-                st.success("Database Created")
+
                 # collection
                 tweet_db = db["Hash_detail"]
                 #tweet_db = db.Hash_detail
-                st.success("Collection Created")
+
+                #Converts data frame into dictonary because Mongodb Reads only Dictonary
                 data_dict = tweets_df.to_dict("records")
+
                 # Insert collection
                 tweet_db.insert_many(data_dict)
-                # tweet_db.insert_one(json_string)
-                st.success("Details Uploaded Successfully")
+
 
         with col2:
             #st.download_button(label="Download JSON File ",file_name="data.json",mime="application/json",data=json_string)
@@ -136,7 +117,6 @@ if (st.sidebar.button('Submit')):
 
         with col3:
             st.download_button("Download CSV File", csv, "tweetreport.csv", "text/csv", key='download-csv')
-
 
     else:
         st.error('Error: End date must fall after start date.')

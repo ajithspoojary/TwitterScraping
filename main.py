@@ -21,13 +21,14 @@ with title_container:
 with st.sidebar:
     st_lottie(lo.lottie_anim.lottie_coding1, height=300)
 
-
+#text box to enter the twitter hashtag
 tweet_keyword = st.sidebar.text_input("Enter the Twitter hashtag")
 if tweet_keyword == "":
     st.stop()
 
-nt = st.sidebar.number_input('Insert a number of tweets to search', min_value=1, max_value=100000, value = 1, step=1)
+nt = st.sidebar.number_input('Insert a number of tweets to search', min_value=1, max_value=100000, value = 10, step=1)
 
+# date validation code for start_date and end_date
 today = datetime.date.today()
 tomorrow = today + datetime.timedelta(days=1)
 start_date = st.sidebar.date_input('Start date',today)
@@ -40,10 +41,10 @@ if (st.sidebar.button('Submit')):
     if start_date < end_date:
         #st.sidebar.success('Date Validated')
 
+        #loading animation after Submit Button is pressed
         with st.spinner('Loading..........'):
             time.sleep(5)
         st.success('Data Successfully Extracted!')
-
 
         #my_bar = st.sidebar.progress(0)
         #for percent_complete in range(100):

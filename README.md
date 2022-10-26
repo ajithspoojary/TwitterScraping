@@ -49,4 +49,5 @@ You Need to Scrape the data like (date, id, url, tweet content, user,reply count
 [Click Here to View Demo Video File](https://drive.google.com/file/d/1YZXtvjGX6e8jTrBrUJ03tWAbPXgRVU0_/view?usp=sharing)
 
 ## Developer
-+ Ajith Sanjeeva Poojary [M.Tech : Software Engineering]
++ Ajith Sanjeeva Poojary (M.Tech : Software Engineering)
+[Click here to View Linkedin Profile](https://www.linkedin.com/in/connectasp/)

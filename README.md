@@ -29,7 +29,7 @@ You Need to Scrape the data like (date, id, url, tweet content, user,reply count
 
 ![page2](https://user-images.githubusercontent.com/110689952/197864378-e780b428-b1dc-426d-9930-c3ecc6e9550e.png)
 
-3. #### This is how the result looks like with all the required data columns. Here we can upload the data to database, download the data in csv or json format
+3. #### This is how the extracted data from twitter looks like with all the required data columns. Here we can upload the data to database, download the data in csv or json format
 
 ![page3](https://user-images.githubusercontent.com/110689952/197864397-4b5fbdd5-497a-42a3-9c18-ba2bb50e55f3.png)
 
@@ -41,7 +41,7 @@ You Need to Scrape the data like (date, id, url, tweet content, user,reply count
 
 ![page5](https://user-images.githubusercontent.com/110689952/197864430-19561cb9-fd2c-42cd-8670-dbbe6b2fba31.png)
 
-6. #### This is how the uploaded datas in Pandas look like
+6. #### This is how the uploaded datas in Mongodb look like
 ![page6](https://user-images.githubusercontent.com/110689952/197864439-3a0af355-967d-43eb-8fa3-2562b6bdfc25.png)
 
 ## Video Demo

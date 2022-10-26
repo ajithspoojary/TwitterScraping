@@ -41,7 +41,7 @@ You Need to Scrape the data like (date, id, url, tweet content, user,reply count
 
 ![page5](https://user-images.githubusercontent.com/110689952/197864430-19561cb9-fd2c-42cd-8670-dbbe6b2fba31.png)
 
-6. #### This is how the uploaded datas in Mongodb look like
+6. #### This is how the uploaded datas in Mongodb looks like
 ![page6](https://user-images.githubusercontent.com/110689952/197864439-3a0af355-967d-43eb-8fa3-2562b6bdfc25.png)
 
 ## Video Demo
